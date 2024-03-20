@@ -27,4 +27,6 @@ To generate various locomotion characteristics of locomotion run the following c
 
 5. Circular ground followed by 4 Degree incline locomotion: Differentresults_circular_inc.m
 
+The simulation videoes are available at: https://www.youtube.com/watch?v=HBj94EAK-tc&list=PLjZISaCp6hxYC3jxJfqzJ_PmT-oxoMOFS
+
 
