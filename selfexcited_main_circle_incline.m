@@ -14,7 +14,7 @@ savex1 = [];savex2= [];savex3= [];savex4= [];savex5= [];savey1= [];savey2= [];sa
  %kd=0; %flat_surface
  %  kd=1;%2 degree inclined plane
       % kd=1.2;%4 degree inclined plane
-      kd =1.1; %worked
+      kd =1.0; %worked
      % kd = 0.7;
 %  kd=1.2;
   
@@ -36,7 +36,7 @@ q01 = -0.14+pi;
 % q0 = [q01;pi-q01;pi-q01;6*(pi-q01);0;0];
 
 
-n = 10-1*1;% no of cycles
+n = 10-0*1;% no of cycles
 t0 = 0;
 
 t=[];q=[];qdot=[];Thip = [];
@@ -66,7 +66,7 @@ if j>4 && j<6
 
 elseif j>5 && j<8
 
-    k = 8-1*4;
+    k = 8-1*4 - 0;
 
     kd = 1.5-5*0.05 - 0*0.05;
 
@@ -76,6 +76,11 @@ elseif j>8 && j<10
 
     kd = 1.2 - 4*0.1;
 
+elseif j ==10
+
+    k = 3.5;
+
+    kd = 0.7;
 
 end    
 
@@ -133,9 +138,9 @@ t0 = t2(i);
 x0 = x0-(l(1)*sin(q0(1))+l(2)*sin(q0(2))+l(3)*sin(q0(3)));
 y0 = y0+(l(1)*cos(q0(1))+l(2)*cos(q0(2))+l(3)*cos(q0(3)));
 % 
-%%
+
 %limit cycle
-if j == n 
+if j == n -1
 %     temp =[2*pi-q0(1) q0(2) -q0(3) q0(6) q0(5) q0(4)];
     temp =[pi+q0(3) q0(2) q0(1)-pi q0(6) q0(5) q0(4)];
     tt = [t1;t2];qq=[q1;q2;temp];
@@ -156,11 +161,9 @@ end
 % ylabel('deg/s')
 
 %%
-% figure()
-% plot(t,(q(:,1)-pi)*180/pi,t,q(:,2)*180/pi,t,q(:,3)*180/pi)
-% xlabel('time (s)');
-% ylabel('\beta (deg)')
-% legend('Transfemoral hip','Knee','Able hip');
-%close all
           
-              Display1_circleincline(q,t,P1,Q1) %for stick diagram
+    Display1_circleincline(q,t,P1,Q1) %for stick diagram
+
+  %  Display1_circleincline_video(q,t,P1,Q1) %for video
+
+           %Display1_circleroc8(q,t,P1,Q1) %for video

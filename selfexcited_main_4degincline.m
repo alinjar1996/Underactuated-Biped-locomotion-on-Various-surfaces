@@ -1,28 +1,45 @@
 clear all;clc;close all;
 
-
+% appropriate initial set of conditions for a stable limit cycle
+% lambda=sqrt(m1*(a(1)+l(1))*g/I1);
+% lambda*cosh(lambda*1.3/4)/sinh(lambda*1.3/4)
 
 global k kd j phi;
 
+%k = 1.43;
 
+% k = 3.3;
+% q01 = -0.18+pi;
+% q0 = [q01;pi-q01;pi-q01;7.53*(pi-q01);0;0];
+
+% k = 4;
+% q01 = -0.16+pi;
+% q0 = [q01;pi-q01;pi-q01;7.53*(pi-q01);0;0];
+
+% k = 5;
+% q01 = -0.15+pi;
+% q0 = [q01;pi-q01;pi-q01;7.53*(pi-q01);0;0];
+% global savex1 savex2 savex3 savex4 savex5 savey1 savey2 savey3 savey4 savey5
 global saveX1 saveX2 saveX3 saveY1 saveY2 saveY3 savex1 savex2 savex3 savex4 savex5 savey1 savey2 savey3 savey4 savey5 savezmp saveth1 saveth2 saveth3 savecg saveAB q0 saveA saveB An fn Tn savephi saveTD
 saveX1 = [];saveX2= [];saveX3= [];saveY1= [];saveY2= [];saveY3= [];savecg=[];savephi=[];saveTD=[];
 savex1 = [];savex2= [];savex3= [];savex4= [];savex5= [];savey1= [];savey2= [];savey3= [];savey4= [];savey5= [];savezmp=[];saveth1=[];saveth2=[];saveth3=[];saveAB=[];saveA=[];saveB=[];
-  k = 5.9;
+  k = 5.8;
  An=0;fn=0.77;
+
+ 
  Tn=(1/fn);
  phi=0;
  %kd=0; %flat_surface
  %  kd=1;%2 degree inclined plane
      %  kd=0.67;%4 degree inclined plane
 
-       kd = 0.5;%4 degree inclined plane
+       kd = 0.36;%4 degree inclined plane
     %  kd =1.25; %for circle roc = 8
 %  kd=1.2;
   
 % k=6; %curved feet
 q01 = -0.14+pi;
-    q0 = [q01;pi-q01;pi-q01;1.13;0;0];%normalfeet
+    q0 = [q01;pi-q01;pi-q01;7.53*(pi-q01);0;0];%normalfeet
 %  q0 = [2.71;0.348;0.348;7.53*0.348;0;0];%r=7,alpha=5degree
 %  q0 = [q01;pi-q01;pi-q01;7.39*(pi-q01);0;0];%curvedfeet
 %  q0 = [q01;pi-q01;pi-q01;10.00*(pi-q01);0;0];
@@ -110,7 +127,7 @@ t0 = t2(i);
 x0 = x0-(l(1)*sin(q0(1))+l(2)*sin(q0(2))+l(3)*sin(q0(3)));
 y0 = y0+(l(1)*cos(q0(1))+l(2)*cos(q0(2))+l(3)*cos(q0(3)));
 % 
-if j ==n || j==n-2
+if j==n
 %     temp =[2*pi-q0(1) q0(2) -q0(3) q0(6) q0(5) q0(4)];
     temp =[pi+q0(3) q0(2) q0(1)-pi q0(6) q0(5) q0(4)];
     tt = [t1;t2];qq=[q1;q2;temp];
@@ -120,9 +137,9 @@ if j ==n || j==n-2
     graph2 = plot(qq(:,1)*180/pi-180,qq(:,4)*180/pi);
         set(graph1,'LineWidth',2);
      set(graph2,'LineWidth',2);
-legend('\theta_3','\theta_1') 
-  xlabel('Angular position  $\theta_1-180 , \theta_3$ (deg)',  'interpreter','latex')
-   ylabel('Angular velocity $\dot{\theta_1}, \dot{\theta_3}$ (deg/s)','interpreter','latex')
+legend('\beta_3','\beta_1') 
+  xlabel(' $\beta_1-180 , \beta_3$ (deg)',  'interpreter','latex')
+   ylabel(' $\dot{\beta_1}, \dot{\beta_3}$ (deg/s)','interpreter','latex')
    set(gca,'fontsize',36, 'fontname', 'Euclid')
 end
 end
@@ -133,11 +150,11 @@ end
 % figure()
 % plot(t,(q(:,1)-pi)*180/pi,t,q(:,2)*180/pi,t,q(:,3)*180/pi)
 % xlabel('time (s)');
-% ylabel('\theta (deg)')
+% ylabel('\beta (deg)')
 % legend('Transfemoral hip','Knee','Able hip');
 %close all
-           %   Display1_4degincline(q,t,P1,Q1) % for video
-              Display1_4degincline2(q,t,P1,Q1) % for stick diagram
+          %    Display1_4degincline(q,t,P1,Q1) % for video
+          %    Display1_4degincline2(q,t,P1,Q1) % for stick diagram
 %%
 % savecg(end)-x0
 % for j=1:length(P1_ground)

@@ -5,11 +5,11 @@ global k kd j phi;
 global saveX1 saveX2 saveX3 saveY1 saveY2 saveY3 savex1 savex2 savex3 savex4 savex5 savey1 savey2 savey3 savey4 savey5 savezmp saveth1 saveth2 saveth3 savecg saveAB q0 saveA saveB An fn Tn savephi saveTD
 saveX1 = [];saveX2= [];saveX3= [];saveY1= [];saveY2= [];saveY3= [];savecg=[];savephi=[];saveTD=[];
 savex1 = [];savex2= [];savex3= [];savex4= [];savex5= [];savey1= [];savey2= [];savey3= [];savey4= [];savey5= [];savezmp=[];saveth1=[];saveth2=[];saveth3=[];saveAB=[];saveA=[];saveB=[];
-  k =6;
+  k =5.5;
  An=0;fn=0.77;
  Tn=(1/fn);
  phi=0;
-      kd =0.65; %for circle roc = 8
+      kd =0.55; %for circle roc = 8
 %  kd=1.2;
   
 % k=6; %curved feet
@@ -105,7 +105,7 @@ t0 = t2(i);
 x0 = x0-(l(1)*sin(q0(1))+l(2)*sin(q0(2))+l(3)*sin(q0(3)));
 y0 = y0+(l(1)*cos(q0(1))+l(2)*cos(q0(2))+l(3)*cos(q0(3)));
 % 
-if j ==2 || j==3
+if j ==2 
 %     temp =[2*pi-q0(1) q0(2) -q0(3) q0(6) q0(5) q0(4)];
     temp =[pi+q0(3) q0(2) q0(1)-pi q0(6) q0(5) q0(4)];
     tt = [t1;t2];qq=[q1;q2;temp];

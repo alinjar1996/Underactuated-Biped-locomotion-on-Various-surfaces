@@ -115,8 +115,8 @@ t0 = t2(i);
 x0 = x0-(l(1)*sin(q0(1))+l(2)*sin(q0(2))+l(3)*sin(q0(3)));
 y0 = y0+(l(1)*cos(q0(1))+l(2)*cos(q0(2))+l(3)*cos(q0(3)));
 % 
-%%
-if j ==n || j==n-1
+
+if j==n-1
 %     temp =[2*pi-q0(1) q0(2) -q0(3) q0(6) q0(5) q0(4)];
     temp =[pi+q0(3) q0(2) q0(1)-pi q0(6) q0(5) q0(4)];
     tt = [t1;t2];qq=[q1;q2;temp];
@@ -139,13 +139,7 @@ end
 % ylabel('deg/s')
 
 %%
-% figure()
-% plot(t,(q(:,1)-pi)*180/pi,t,q(:,2)*180/pi,t,q(:,3)*180/pi)
-% xlabel('time (s)');
-% ylabel('\theta (deg)')
-% legend('Transfemoral hip','Knee','Able hip');
-%close all
-             Display1_flat(q,t,P1,Q1) % for obtaining stick diagram
+          %   Display1_flat(q,t,P1,Q1) % for obtaining stick diagram
    %       Display1_flat2(q,t,P1,Q1) % for seeing the video
       
 %qdot = []  ;   
