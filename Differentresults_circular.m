@@ -95,7 +95,7 @@ rmshipvel = sqrt(sum(Vxhipsqr)/t(end))
 plot(t,Vxhip, 'linewidth', 2)
 xlabel("Time(s)")
 ylabel("Hip velocity (m/s)")
-set(gca,'fontsize',40, 'fontname', 'Euclid')
+set(gca,'fontsize',36, 'fontname', 'Euclid')
 %0.6725 for inclined plane
 % 0.2627 for flat plane
 % 0.5884 for circular plane

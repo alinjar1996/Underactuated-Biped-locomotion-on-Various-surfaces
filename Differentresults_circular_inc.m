@@ -78,13 +78,7 @@ for i=1:length(t)-1
     end
 end
 Power=sum(Instanteneouspower)/t(end)
-%for inclined plane walking total power per cycle=54.6060/15=3.6404 watt;
-%efficiency=0.1847
-%for flat plane walking total power per cycle=7.9521/15=0.5301 watt;
- %efficiency=0.4956
-%for curved plane walking total power per cycle=7.9719/5=1.5944 watt;
-%efficiency=0.3690
-%averagepower=3.79W
+
 %%
 %hip velocity
 for i=1:length(t)
@@ -107,7 +101,7 @@ set(gca,'fontsize',40, 'fontname', 'Euclid')
 global savex5
 r = 8;
 clear swlegclearance swlegclearance1 swlegclearance2 
-for i =1:length(savex5)-1
+for i =1:length(savex5)-2
    % if Q1(i)==0
   % ydash(i)=0;
   %  else
@@ -124,20 +118,18 @@ for i =1:length(savex5)-1
 
    swlegclearance1(i)= savey5(i)-ydash(i); 
    swlegclearance2(i)= savey5(i)-Q1(i);
-
-
-   swlegclearance(i)=max(swlegclearance1(i),swlegclearance2(i));
+   %swlegclearance(i)=max(swlegclearance1(i),swlegclearance2(i));
 
    %swlegclearance(i)=max(swlegclearance1(i),swlegclearance2(i));
 
    if Q1(i) ==0
 
-       swlegclearance(i) = max(swlegclearance1(i),swlegclearance2(i));
+       swlegclearance(i) = swlegclearance1(i);
 
    else    
 
-       swlegclearance(i) = swlegclearance1(i);
-       
+       swlegclearance(i) = swlegclearance2(i);
+
    end
     
 end    
