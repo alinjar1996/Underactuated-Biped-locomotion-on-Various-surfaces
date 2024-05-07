@@ -117,7 +117,7 @@ for i =1:length(savex5)-1
 
    if Q1(i) ==0
 
-       swlegclearance(i) = swlegclearance1(i);
+       swlegclearance(i) = swlegclearance2(i);
 
    else    
 
