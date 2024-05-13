@@ -86,7 +86,7 @@ Power=sum(Instanteneouspower)/t(end)
 %hip velocity
 for i=1:length(t)
    % Vxhip(i)=-l(1)*cos(q(i,1))*q(i,4)*cosd(6)-l(1)*sin(q(i,1))*q(i,4)*sind(6);
-   Vxhip(i) = -l(1)*sin(q(i,1))*q(i,4);
+   Vxhip(i) = l(1)*cos(q(i,1))*q(i,4);
    Vxhipabs(i)= abs(Vxhip(i));
    Vxhipsqr(i)= Vxhip(i)^2;  
 end

@@ -63,15 +63,17 @@ Power=sum(Instanteneouspower)/t(end)
 %hip velocity
 for i=1:length(t)
    % Vxhip(i)=-l(1)*cos(q(i,1))*q(i,4)*cosd(6)-l(1)*sin(q(i,1))*q(i,4)*sind(6);
-   Vxhip(i) = -l(1)*sin(q(i,1))*q(i,4);
+   %Vxhip(i) = -l(1)*sin(q(i,1))*q(i,4);
+   Vxhip(i) = l(1)*cos(q(i,1))*q(i,4);
    Vxhipabs(i)= abs(Vxhip(i));
    Vxhipsqr(i)= Vxhip(i)^2;
 end
 rmshipvel = sqrt(sum(Vxhipsqr)/t(end))
-plot(t,Vxhip)
+plot(t,Vxhip, 'linewidth', 2)
 xlabel("Time(s)")
-ylabel("Forward Hip Velocity (m/s)")
-set(gca,'fontsize',40, 'fontname', 'Euclid')
+ylabel("Hip velocity (m/s)")
+set(gca,'fontsize',36, 'fontname', 'Euclid')
+
 %0.6725 for inclined plane
 % 0.2627 for flat plane
 % 0.5884 for circular plane
